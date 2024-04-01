@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.global-button {
+  background: #87276c49;
+  border: none;
+  border-radius: 3px 2px 3px 3px;
+  color: #fff;
+  display: inline-block;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 19px;
+  padding: 10px 32px;
+  position: relative;
+  transition: all .3s ease;
+}
+
+.global-button:before {
+  border-radius: 2px;
+    box-sizing: initial;
+    content: "";
+    position: absolute;
+
+
+  border: 2px solid #87276c;
+  bottom: 0;
+  -webkit-clip-path: polygon(0 0,calc(100% - 16px) 0,100% 40%,100% 100%,0 100%);
+  clip-path: polygon(0 0,calc(100% - 16px) 0,100% 40%,100% 100%,0 100%);
+  height: 94%;
+  left: 0;
+  width: 100%;
+}
+
+.global-button:after {
+  border-right: 2px solid #87276c;
+  bottom: 21px;
+  height: 23px;
+  left: calc(100% - 5px);
+  -webkit-transform: rotate(138deg);
+  transform: rotate(138deg);
+
+  border-radius: 2px;
+  box-sizing: initial;
+  content: "";
+  position: absolute;
+}
+
+.global-button:hover {
+  background: #87276c84;
+}
+
+.transitioning-ul {
+  display: block;
+  opacity: 1;
+  max-height: 500px; /* Set a max-height for transitioning */
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.hidden-ul {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
