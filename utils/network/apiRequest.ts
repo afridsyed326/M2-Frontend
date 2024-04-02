@@ -7,12 +7,10 @@ import { getAccessTokenFromCookie, removeAccessTokenCookie } from "../storage";
 const logout = () => {
     const fullPath = window.location.pathname + window.location.search;
     removeAccessTokenCookie();
-    window.location.href =
-        "/auth/login" + `?next=${encodeURIComponent(fullPath)}`;
+    window.location.href = "/login" + `?next=${encodeURIComponent(fullPath)}`;
 };
 
 export default function ApiRequest() {
-
     const request = axios.create({
         baseURL: `${API_INSTANCE}`,
         headers: {
