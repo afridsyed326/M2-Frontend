@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 type Props = {};
 
 const TransferCoin = (props: Props) => {
-    const { transferCoins } = useWalletActions();
+    const { transferCoins, getTransactionHistory } = useWalletActions();
 
     const formik = useFormik({
         initialValues: {
@@ -33,6 +33,7 @@ const TransferCoin = (props: Props) => {
                 toast.error(login.message);
             } else {
                 toast.success("Trsnsfer successfull");
+                getTransactionHistory({ page: 1 });
                 formik.resetForm();
             }
         },
