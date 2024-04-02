@@ -79,7 +79,7 @@ const Page = (props: Props) => {
                         loading={loading}
                     />
                     <div>
-                        Don't have an account? <Link href="/register"><span className="text-blue-500">Sign up</span></Link>
+                        Don&apos;t have an account? <Link href="/register"><span className="text-blue-500">Sign up</span></Link>
                     </div>
                 </div>
             </div>
