@@ -1,3 +1,4 @@
+import { LuLayoutDashboard } from "react-icons/lu";
 export interface Page {
     label?: string;
     icon?: JSX.Element;
@@ -9,28 +10,8 @@ export interface Page {
 export const pages: Page[] = [
     {
         label: "Dashboard",
-        // icon: <DashboardIcon />,
+        icon: <LuLayoutDashboard />,
         path: "/",
         key: "dashboard",
-    },
-    {
-        label: "Transaction",
-        // icon: <SettingsIcon />,
-        path: "/transaction",
-        key: "transaction",
-        subPages: [
-            {
-                label: "Transfer",
-                // icon: <SupportAgentIcon fontSize="small" />,
-                path: "/transfer",
-                key: "transfer",
-            },
-            {
-                label: "History",
-                // icon: <SupportAgentIcon fontSize="small" />,
-                path: "/history",
-                key: "history",
-            },
-        ],
     },
 ];

@@ -43,8 +43,9 @@ export default function AuthLayout({
                                 </h2>
                             </div>
                             <div className="mt-3  text-lg ">
-                                Discover the world&apos;s best community of
-                                influencers tutorials and videos
+                                Welcome to M2X, a revolutionary metaverse
+                                platform allowing users to access all the
+                                benefit of blockchain technology
                             </div>
                         </div>
                     </div>
@@ -55,12 +56,7 @@ export default function AuthLayout({
                     style={{ backgroundImage: `url(${regBg})` }}
                 >
                     <div className="lg:hidden w-full flex justify-center">
-                        <Image
-                            src={logo}
-                            alt={""}
-                            width={120}
-                            height={45}
-                        />
+                        <Image src={logo} alt={""} width={120} height={45} />
                     </div>
                     <div className="w-full">{children}</div>
                 </div>
