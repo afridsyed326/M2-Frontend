@@ -9,6 +9,7 @@ import { logo } from "@/images";
 import { userLogin } from "@/apiActions/authActions";
 import { toast } from "react-toastify";
 import { useRouter, usePathname } from "next/navigation";
+import Link from "next/link";
 
 type Props = {};
 
@@ -31,9 +32,8 @@ const Page = (props: Props) => {
             setLoading(true);
             const login = await userLogin(values);
             setLoading(false);
-            console.log(login.status);
             if (!login.status) {
-                toast.error(login.data.message);
+                toast.error(login.message);
             } else {
                 toast.success("Login successfull");
                 router.push("/");
@@ -44,39 +44,44 @@ const Page = (props: Props) => {
     const [loading, setLoading] = useState(false);
 
     return (
-        <div className="border rounded-lg p-5 ">
-            <div className="w-full text-center font-bold text-2xl py-5">
-                Login
-            </div>
-            <div className="grid grid-cols-1 gap-5">
-                <div>
-                    <GlobalInput
-                        label="Username/Email"
-                        name="username"
-                        value={formik.values.username}
-                        onChange={formik.handleChange}
-                        error={
-                            formik.touched.username && formik.errors.username
-                        }
-                    />
+        <div className="relative flex w-full justify-center items-center p-10 h-full">
+            <div className="p-5 main-card max-w-[30rem]">
+                <div className="w-full text-center font-bold text-2xl py-5">
+                    Login
                 </div>
-                <div>
-                    <GlobalInput
-                        label="Password"
-                        name="password"
-                        value={formik.values.password}
-                        onChange={formik.handleChange}
-                        error={
-                            formik.touched.password && formik.errors.password
-                        }
-                        type="password"
+                <div className="grid grid-cols-1 gap-5">
+                    <div>
+                        <GlobalInput
+                            label="Username/Email"
+                            name="username"
+                            value={formik.values.username}
+                            onChange={formik.handleChange}
+                            error={
+                                formik.touched.username && formik.errors.username
+                            }
+                        />
+                    </div>
+                    <div>
+                        <GlobalInput
+                            label="Password"
+                            name="password"
+                            value={formik.values.password}
+                            onChange={formik.handleChange}
+                            error={
+                                formik.touched.password && formik.errors.password
+                            }
+                            type="password"
+                        />
+                    </div>
+                    <GlobalButton
+                        text="Login"
+                        onClick={formik.handleSubmit}
+                        loading={loading}
                     />
+                    <div>
+                        Don't have an account? <Link href="/register"><span className="text-blue-500">Sign up</span></Link>
+                    </div>
                 </div>
-                <GlobalButton
-                    text="Login"
-                    onClick={formik.handleSubmit}
-                    loading={loading}
-                />
             </div>
         </div>
     );

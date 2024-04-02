@@ -94,3 +94,15 @@ body {
   overflow: hidden;
   transition: max-height 0.3s ease, opacity 0.3s ease;
 }
+
+.main-card {
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border: 1px solid #d16ef8;
+  /* border-radius: 20px; */
+  border-top-right-radius: 78px;
+  /* -webkit-clip-path: polygon(81% 0, 100% 17%, 100% 99%, 0 100%, 0 0);
+  clip-path: polygon(81% 0, 100% 17%, 100% 99%, 0 100%, 0 0); */
+  position: relative;
+  width: 100%;
+}

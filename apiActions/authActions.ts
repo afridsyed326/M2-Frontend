@@ -1,4 +1,4 @@
-import { LOGIN } from "@/utils/network/apiEndpoints";
+import { LOGIN, REGISTER } from "@/utils/network/apiEndpoints";
 import ApiRequest from "@/utils/network/apiRequest";
 
 export const userLogin = async (data: {
@@ -15,5 +15,20 @@ export const userLogin = async (data: {
             localStorage.setItem("accessToken", response.data.data.token);
             return response.data;
         })
-        .catch((error: any) => error);
+        .catch((error: any) => error.data);
+};
+
+export const userRegister = async (data: any) => {
+    return await ApiRequest()
+        .request({
+            method: "POST",
+            url: REGISTER,
+            data,
+        })
+        .then((response: any) => {
+            console.log(response)
+            localStorage.setItem("accessToken", response.data.data.token);
+            return response.data;
+        })
+        .catch((error: any) => error.data);
 };

@@ -1,4 +1,4 @@
-import { authBg, logo } from "@/images";
+import { authBg, logo, regBg } from "@/images";
 import Image from "next/image";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -14,7 +14,7 @@ export default function AuthLayout({
         <AuthRedirect>
             <div className="w-full h-screen flex items-center">
                 <ToastContainer
-                    autoClose={1000}
+                    autoClose={3000}
                     hideProgressBar={true}
                     theme="dark"
                 />
@@ -50,10 +50,19 @@ export default function AuthLayout({
                     </div>
                 </div>
 
-                <div className=" flex-1 flex items-center justify-center h-full overflow-auto bg-cover bg-center bg-bgPrimary">
-                    <div className="flex justify-center items-center flex-col w-full">
-                        {children}
+                <div
+                    className="flex-1 flex justify-center h-screen overflow-auto flex-col gap-8 lg:flex-row bg-bgPrimary bg-cover bg-center"
+                    style={{ backgroundImage: `url(${regBg})` }}
+                >
+                    <div className="lg:hidden w-full flex justify-center">
+                        <Image
+                            src={logo}
+                            alt={""}
+                            width={120}
+                            height={45}
+                        />
                     </div>
+                    <div className="w-full">{children}</div>
                 </div>
             </div>
         </AuthRedirect>

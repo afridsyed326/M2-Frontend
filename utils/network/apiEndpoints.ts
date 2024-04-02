@@ -1,5 +1,4 @@
-export const API_INSTANCE = "http://localhost:5001";
-export const WEBSITE_DOMAIN = process.env.REACT_APP_WEBSITE_DOMAIN;
+export const API_INSTANCE = process.env.NEXT_PUBLIC_API_INSTANCE;
 
 //Auth
 export const LOGIN = "/auth/login";
