@@ -18,31 +18,38 @@ const Page = (props: Props) => {
     const { userRegister } = useUserActions();
     const formik = useFormik({
         initialValues: {
-            username: '', email: '', password: '', confirmPassword: '', firstName: '', lastName: ''
+            username: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+            firstName: "",
+            lastName: "",
         },
         validationSchema: Yup.object().shape({
             username: Yup.string()
-                .required('Username is required')
-                .min(3, 'Username must be at least 3 characters')
-                .max(20, 'Username must not exceed 20 characters')
-                .matches(/^[a-zA-Z0-9_]+$/, 'Username can only contain letters, numbers, and underscores'),
+                .required("Username is required")
+                .min(3, "Username must be at least 3 characters")
+                .max(20, "Username must not exceed 20 characters")
+                .matches(
+                    /^[a-zA-Z0-9_]+$/,
+                    "Username can only contain letters, numbers, and underscores"
+                ),
 
             email: Yup.string()
-                .required('Email is required')
-                .email('Invalid email address'),
+                .required("Email is required")
+                .email("Invalid email address"),
 
             password: Yup.string()
-                .required('Password is required')
-                .min(8, 'Password must be at least 8 characters'),
+                .required("Password is required")
+                .min(8, "Password must be at least 8 characters"),
 
-            confirmPassword: Yup.string()
-                .required('Please confirm your password'),
+            confirmPassword: Yup.string().required(
+                "Please confirm your password"
+            ),
 
-            firstName: Yup.string()
-                .required('First name is required'),
+            firstName: Yup.string().required("First name is required"),
 
-            lastName: Yup.string()
-                .required('Last name is required')
+            lastName: Yup.string().required("Last name is required"),
         }),
         onSubmit: async (values: any) => {
             setLoading(true);
@@ -52,7 +59,7 @@ const Page = (props: Props) => {
                 toast.error(register.message);
             } else {
                 toast.success("Registration successfull");
-                router.push("/");
+                router.push("/login");
             }
         },
     });
@@ -73,7 +80,8 @@ const Page = (props: Props) => {
                             value={formik.values.username}
                             onChange={formik.handleChange}
                             error={
-                                formik.touched.username && formik.errors.username
+                                formik.touched.username &&
+                                formik.errors.username
                             }
                         />
                     </div>
@@ -83,9 +91,7 @@ const Page = (props: Props) => {
                             name="email"
                             value={formik.values.email}
                             onChange={formik.handleChange}
-                            error={
-                                formik.touched.email && formik.errors.email
-                            }
+                            error={formik.touched.email && formik.errors.email}
                         />
                     </div>
                     <div>
@@ -95,7 +101,8 @@ const Page = (props: Props) => {
                             value={formik.values.password}
                             onChange={formik.handleChange}
                             error={
-                                formik.touched.password && formik.errors.password
+                                formik.touched.password &&
+                                formik.errors.password
                             }
                             type="password"
                         />
@@ -107,7 +114,8 @@ const Page = (props: Props) => {
                             value={formik.values.confirmPassword}
                             onChange={formik.handleChange}
                             error={
-                                formik.touched.confirmPassword && formik.errors.confirmPassword
+                                formik.touched.confirmPassword &&
+                                formik.errors.confirmPassword
                             }
                             type="password"
                         />
@@ -119,7 +127,8 @@ const Page = (props: Props) => {
                             value={formik.values.firstName}
                             onChange={formik.handleChange}
                             error={
-                                formik.touched.firstName && formik.errors.firstName
+                                formik.touched.firstName &&
+                                formik.errors.firstName
                             }
                         />
                     </div>
@@ -130,7 +139,8 @@ const Page = (props: Props) => {
                             value={formik.values.lastName}
                             onChange={formik.handleChange}
                             error={
-                                formik.touched.lastName && formik.errors.lastName
+                                formik.touched.lastName &&
+                                formik.errors.lastName
                             }
                         />
                     </div>
@@ -140,7 +150,10 @@ const Page = (props: Props) => {
                         loading={loading}
                     />
                     <div className="flex justify-center">
-                        Already have an account?{" "}<Link href="/login"><span className="text-blue-500 ml-2">Sign in</span></Link>
+                        Already have an account?{" "}
+                        <Link href="/login">
+                            <span className="text-blue-500 ml-2">Sign in</span>
+                        </Link>
                     </div>
                 </div>
             </div>

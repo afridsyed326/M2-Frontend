@@ -20,8 +20,8 @@ const Page = (props: Props) => {
 
     const formik = useFormik({
         initialValues: {
-            username: "afridsyed326",
-            password: "Abcd123!",
+            username: "",
+            password: "",
         },
         validationSchema: Yup.object({
             username: Yup.string()
@@ -60,7 +60,8 @@ const Page = (props: Props) => {
                             value={formik.values.username}
                             onChange={formik.handleChange}
                             error={
-                                formik.touched.username && formik.errors.username
+                                formik.touched.username &&
+                                formik.errors.username
                             }
                         />
                     </div>
@@ -71,7 +72,8 @@ const Page = (props: Props) => {
                             value={formik.values.password}
                             onChange={formik.handleChange}
                             error={
-                                formik.touched.password && formik.errors.password
+                                formik.touched.password &&
+                                formik.errors.password
                             }
                             type="password"
                         />
@@ -82,7 +84,10 @@ const Page = (props: Props) => {
                         loading={loading}
                     />
                     <div>
-                        Don&apos;t have an account? <Link href="/register"><span className="text-blue-500">Sign up</span></Link>
+                        Don&apos;t have an account?{" "}
+                        <Link href="/register">
+                            <span className="text-blue-500">Sign up</span>
+                        </Link>
                     </div>
                 </div>
             </div>

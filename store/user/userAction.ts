@@ -3,14 +3,10 @@ import ApiRequest from "@/utils/network/apiRequest";
 import { useDispatch } from "react-redux";
 import { setLogIn } from "./userSlice";
 
-
 export const useUserActions = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
-    const userLogin = async (data: {
-        username: string;
-        password: string;
-    }) => {
+    const userLogin = async (data: { username: string; password: string }) => {
         return await ApiRequest()
             .request({
                 method: "POST",
@@ -18,12 +14,12 @@ export const useUserActions = () => {
                 data,
             })
             .then((response: any) => {
-                dispatch(setLogIn(response.data.data))
+                dispatch(setLogIn(response.data.data));
                 return response.data;
             })
             .catch((error: any) => error.data);
     };
-    
+
     const userRegister = async (data: any) => {
         return await ApiRequest()
             .request({
@@ -32,7 +28,6 @@ export const useUserActions = () => {
                 data,
             })
             .then((response: any) => {
-                dispatch(setLogIn(response.data.data))
                 return response.data;
             })
             .catch((error: any) => error.data);
@@ -40,6 +35,6 @@ export const useUserActions = () => {
 
     return {
         userLogin,
-        userRegister
-    }
-}
+        userRegister,
+    };
+};
