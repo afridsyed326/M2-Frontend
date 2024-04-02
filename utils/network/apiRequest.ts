@@ -2,26 +2,21 @@
 import axios from "axios";
 //API
 import { API_INSTANCE } from "./apiEndpoints";
+import { getAccessTokenFromCookie, removeAccessTokenCookie } from "../storage";
 
 const logout = () => {
     const fullPath = window.location.pathname + window.location.search;
-    const storage = localStorage;
-    storage.removeItem("accessToken");
+    removeAccessTokenCookie();
     window.location.href =
         "/auth/login" + `?next=${encodeURIComponent(fullPath)}`;
 };
 
 export default function ApiRequest() {
-    const storage = localStorage;
 
     const request = axios.create({
         baseURL: `${API_INSTANCE}`,
         headers: {
-            Authorization: `Bearer ${
-                storage.getItem("accessToken")
-                    ? storage.getItem("accessToken")
-                    : null
-            }`,
+            Authorization: `Bearer ${getAccessTokenFromCookie() || null}`,
         },
         responseType: "json",
         socketPath: null,

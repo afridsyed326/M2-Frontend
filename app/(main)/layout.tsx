@@ -9,6 +9,7 @@ import { Page, pages } from "@/components/Sidebar/appRoutes";
 import AuthRedirect from "@/components/common/AuthRedirect";
 import { logo } from "@/images";
 import GlobalButton from "@/components/common/GlobalButton";
+import { removeAccessTokenCookie } from "@/utils/storage";
 export default function MainLayout({
     children,
 }: {
@@ -37,7 +38,7 @@ export default function MainLayout({
     };
 
     const handleLogout = () => {
-        localStorage.removeItem("accessToken");
+        removeAccessTokenCookie()
         router.push("/login");
     };
     const toggleExpanded = () => setDrawerExpanded((p) => !p);
@@ -48,9 +49,8 @@ export default function MainLayout({
                 <div>
                     <div className="w-full h-screen flex">
                         <div
-                            className={`absolute transition-all ease-in-out delay-150 top-0 left-0 w-64 z-50 sm:w-1/2  ${
-                                drawerExpanded ? "flex" : "hidden"
-                            } md:w-60 h-full bg-gradient-to-br from-bgPrimary to-bgSecondary shadow sm:shadow-md md:shadow-lg lg:shadow-xl xl:shadow-2xl justify-between flex-col`}
+                            className={`absolute transition-all ease-in-out delay-150 top-0 left-0 w-64 z-50 sm:w-1/2  ${drawerExpanded ? "flex" : "hidden"
+                                } md:w-60 h-full bg-gradient-to-br from-bgPrimary to-bgSecondary shadow sm:shadow-md md:shadow-lg lg:shadow-xl xl:shadow-2xl justify-between flex-col`}
                         >
                             <div>
                                 <div
@@ -90,9 +90,8 @@ export default function MainLayout({
                                 toggleExpanded={toggleExpanded}
                             />
                             <div
-                                className={`bg-bgPrimary p-3 mt-[1px] h-[calc(100vh-80px)] overflow-auto ${
-                                    drawerExpanded && "sm:ml-60"
-                                }`}
+                                className={`bg-bgPrimary p-3 mt-[1px] h-[calc(100vh-80px)] overflow-auto ${drawerExpanded && "sm:ml-60"
+                                    }`}
                             >
                                 {children}
                             </div>

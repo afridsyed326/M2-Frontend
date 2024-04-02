@@ -6,15 +6,16 @@ import * as Yup from "yup";
 import GlobalButton from "@/components/common/GlobalButton";
 import Image from "next/image";
 import { logo } from "@/images";
-import { userLogin, userRegister } from "@/apiActions/authActions";
 import { toast } from "react-toastify";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
+import { useUserActions } from "@/store/user/userAction";
 
 type Props = {};
 
 const Page = (props: Props) => {
     const router = useRouter();
+    const { userRegister } = useUserActions();
     const formik = useFormik({
         initialValues: {
             username: '', email: '', password: '', confirmPassword: '', firstName: '', lastName: ''
