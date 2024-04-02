@@ -24,5 +24,5 @@ const userSlice = createSlice({
 });
 
 export const { setOverview } = userSlice.actions;
-export const selectWallet = (state: WalletSliceState) =>  state.overview;
+export const selectWallet = (state: any) =>  state.wallet;
 export default userSlice.reducer;

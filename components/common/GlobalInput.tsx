@@ -29,7 +29,7 @@ const GlobalInput = ({
                     name={name}
                     value={value}
                     onChange={onChange}
-                    className={`peer h-10 w-full border rounded-md bg-bgPrimary px-4 outline-none drop-shadow-sm transition-all duration-200 ease-in-out focus:shadow-md ${error ? "border-red-500" : "focus:shadow-blue-400"
+                    className={`peer h-10 w-full border rounded-md bg-transparent px-4 outline-none drop-shadow-sm transition-all duration-200 ease-in-out focus:shadow-md ${error ? "border-red-500" : "focus:shadow-blue-400"
                         }`}
                 />
                 {error && <div className="text-red-500">{error}</div>}

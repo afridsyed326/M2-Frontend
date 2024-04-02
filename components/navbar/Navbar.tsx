@@ -17,7 +17,7 @@ const Navbar = ({ drawerExpanded, toggleExpanded }: Props) => {
 
     return (
         <div
-            className={`flex h-[80px] bg-bgSecondary border-b border-accent relative shadow-lg justify-between transition-all items-center text-3xl font-bold ${drawerExpanded && "sm:ml-60"
+            className={`flex h-[80px] bg-gradient-to-br from-bgPrimary to-accent/30 border-b border-accent relative shadow-lg justify-between transition-all items-center text-3xl font-bold ${drawerExpanded && "sm:ml-60"
                 }`}
         >
             <div className={`md:hidden px-4`}>

@@ -50,7 +50,7 @@ export default function MainLayout({
                     <div className="w-full h-screen flex">
                         <div
                             className={`absolute transition-all ease-in-out delay-150 top-0 left-0 w-64 z-50 sm:w-1/2  ${drawerExpanded ? "flex" : "hidden"
-                                } md:w-60 h-full bg-gradient-to-br from-bgPrimary to-bgSecondary shadow sm:shadow-md md:shadow-lg lg:shadow-xl xl:shadow-2xl justify-between flex-col`}
+                                } md:w-60 h-full bg-gradient-to-br from-bgPrimary to-accent/30 shadow sm:shadow-md md:shadow-lg lg:shadow-xl xl:shadow-2xl justify-between flex-col`}
                         >
                             <div>
                                 <div
@@ -90,7 +90,7 @@ export default function MainLayout({
                                 toggleExpanded={toggleExpanded}
                             />
                             <div
-                                className={`bg-bgPrimary p-3 mt-[1px] h-[calc(100vh-80px)] overflow-auto ${drawerExpanded && "sm:ml-60"
+                                className={`bg-gradient-to-br from-bgPrimary to-accent/30 p-3 mt-[1px] h-[calc(100vh-80px)] overflow-auto ${drawerExpanded && "sm:ml-60"
                                     }`}
                             >
                                 {children}

@@ -5,12 +5,13 @@ type Props = {
     text: string;
     onClick: () => void;
     loading?: boolean;
+    className?: string;
 };
 
-const GlobalButton = ({ text, onClick, loading }: Props) => {
+const GlobalButton = ({ text, onClick, loading, className = '' }: Props) => {
     return (
         <div
-            className="global-button cursor-pointer w-full flex justify-start text-center"
+            className={`global-button cursor-pointer w-full flex justify-start text-center ${className}`}
             onClick={onClick}
         >
             {loading ? (

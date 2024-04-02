@@ -1,5 +1,3 @@
-// userSlice.js
-
 import { getAccessTokenFromCookie, getUserFromCookie, removeAccessTokenCookie, setAccessTokenCookie, setUserCookie } from "@/utils/storage";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
